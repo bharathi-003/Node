@@ -1,2 +1,2 @@
-const names=require('./data')
-console.log(names)
+const imports=require('./data')
+console.log(imports)
