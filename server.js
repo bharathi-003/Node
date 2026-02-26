@@ -1,17 +1,12 @@
-const http = require('http');
+const express = require("express");
+const userRoutes = require("./routes/user"); // ✅ correct file name
 
-const server = http.createServer((req, res) => {
-  res.writeHead(200, { 'Content-Type': 'text/html' });
-  res.end(`
-    <html>
-    <body>
-        <h1>Node JS</h1>
-        <p>Node is a runtime environment that allows you to trun javascript outside the brower mainly on the server side</p>
-    </body>
-    </html>
-    `);
-});
+const app = express();
 
-server.listen(3000, () => {
-  console.log('Server running at http://localhost:3000/');
+app.use(express.json()); // very important
+
+app.use("/users", userRoutes); // route path
+
+app.listen(3000, () => {
+  console.log("Server running at http://localhost:3000/");
 });
