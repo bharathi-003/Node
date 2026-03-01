@@ -2,9 +2,6 @@ const express = require("express");
 const router = express.Router();
 const studentModel = require("../models/student");
 
-/* =========================
-   CREATE STUDENT (POST)
-========================= */
 router.post("/", async (req, res) => {
   try {
     const { name, email, sin_number } = req.body;
